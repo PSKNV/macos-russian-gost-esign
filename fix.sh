@@ -12,6 +12,10 @@ curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit
 
 curl -s 'https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg' -o '~/Downloads/IFCPlugin.pkg'
 
+# Download Chromium GOST
+
+curl -s 'https://github.com/deemru/chromium-gost/releases/download/81.0.4044.138/chromium-gost-81.0.4044.138-macos-amd64.tar.bz2' -o '~/Downloads/chromium-gost.dmg'
+
 # Install C_R_Y_P_T_O_P_R_0... >_< and others
 
 open '~/Downloads/cprocsp.dmg'
