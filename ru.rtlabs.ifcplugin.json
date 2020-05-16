@@ -1,0 +1,9 @@
+{
+  "name": "ru.rtlabs.ifcplugin",
+  "description": "IFCPlugin Extension Host",
+  "path": "/Library/Internet Plug-Ins/IFCPlugin.plugin/Contents/MacOS/ifc_chrome_host",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://pbefkdcndngodfeigfdgiodgnmbgcfha/"
+  ]
+}
