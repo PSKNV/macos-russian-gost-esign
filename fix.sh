@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
+# Show current version of C_R_Y_P_T_O_P_R_0... >_<
+
+cat /etc/opt/cprocsp/release
+
+# Download CADES Plugin
+
+curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' -s 'https://cryptopro.ru/products/cades/plugin/get_2_0' -o '~/Downloads/cprocsp.dmg'
+
+# Download IFC Plugin / gosuslugi.ru
+
+curl -s 'https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg' -o '~/Downloads/IFCPlugin.pkg'
+
+# Install C_R_Y_P_T_O_P_R_0... >_< and others
+
+open '~/Downloads/cprocsp.dmg'
+open '~/Downloads/IFCPlugin.pkg'
+
+########
+## @TODO This shit is not completed right here.
+########
+
 # Fix incorrect config files
 
 sudo rm '/Library/Internet Plug-Ins/IFCPlugin.plugin/Contents/ifc.cfg'
