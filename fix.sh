@@ -21,16 +21,21 @@ CSP_DMG="ru.cryptopro.csp-5.0.11944.dmg"
 
 # Download IFC Plugin / gosuslugi.ru
 
-curl -s 'https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg' -o '~/Downloads/IFCPlugin.pkg'
+curl -s "https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg" -o "./vendor/IFCPlugin.pkg"
 
 # Download Chromium GOST
 
-curl -s 'https://github.com/deemru/chromium-gost/releases/download/81.0.4044.138/chromium-gost-81.0.4044.138-macos-amd64.tar.bz2' -o '~/Downloads/chromium-gost.dmg'
+CHROMIUM_GOST_VERSION="87.0.4280.66"
+
+curl -s "https://github.com/deemru/chromium-gost/releases/download/$CHROMIUM_GOST_VERSION/chromium-gost-$CHROMIUM_GOST_VERSION-macos-amd64.tar.bz2" -o "./vendor/chromium-gost.tar.bz2"
+
+bzip2 -d ./vendor/chromium-gost.tar.bz2
+tar -xvf ./vendor/chromium-gost.tar
 
 # Install C_R_Y_P_T_O_P_R_0... >_< and others
 
-open '~/Downloads/cprocsp.dmg'
-open '~/Downloads/IFCPlugin.pkg'
+# open '~/Downloads/cprocsp.dmg'
+# open '~/Downloads/IFCPlugin.pkg'
 
 ########
 ## @TODO This shit is not completed right here.
