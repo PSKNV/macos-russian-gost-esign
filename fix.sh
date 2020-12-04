@@ -6,7 +6,18 @@ cat /etc/opt/cprocsp/release
 
 # Download CADES Plugin
 
-curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' -s 'https://cryptopro.ru/products/cades/plugin/get_2_0' -o '~/Downloads/cprocsp.dmg'
+# https://cryptopro.ru/system/files/private/csp/50/11944/ru.cryptopro.csp-5.0.11944.dmg
+
+CSP_DMG="ru.cryptopro.csp-5.0.11944.dmg"
+
+# curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
+#   -sLo "/tmp/$CSP_DMG" \
+#   -XGET "https://cryptopro.ru/system/files/private/csp/50/11944/$CSP_DMG"
+
+# curl \
+#   -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
+#   -XGET 'https://cryptopro.ru/products/cades/plugin/get_2_0' \
+#   -o '~/Downloads/cprocsp.dmg'
 
 # Download IFC Plugin / gosuslugi.ru
 
