@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
+set -x
+
 # Show current version of C_R_Y_P_T_O_P_R_0... >_<
 
-cat /etc/opt/cprocsp/release
+CSP_VERSION=$(cat /etc/opt/cprocsp/release | awk '{print $4}')
 
 # Download CADES Plugin
 
 # https://cryptopro.ru/system/files/private/csp/50/11944/ru.cryptopro.csp-5.0.11944.dmg
 
-CSP_DMG="ru.cryptopro.csp-5.0.11944.dmg"
+CSP_DMG="ru.cryptopro.csp-5.0.11944.pkg"
 CSP_PLUGIN="cprocsp-pki-2.0.14071.pkg"
+IFC_PLUGIN="IFCPlugin.pkg"
 
 # curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
 #   -sLo "/tmp/$CSP_DMG" \
@@ -22,11 +25,11 @@ CSP_PLUGIN="cprocsp-pki-2.0.14071.pkg"
 
 # Download CADES Plugin
 
-curl -s "https://cryptopro.ru/products/cades/plugin/get_2_0" -o "./vendor/$CSP_PLUGIN"
+# curl -s "https://cryptopro.ru/products/cades/plugin/get_2_0" -o "./vendor/$CSP_PLUGIN"
 
 # Download IFC Plugin / gosuslugi.ru
 
-curl -s "https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg" -o "./vendor/IFCPlugin.pkg"
+# curl -s "https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin.pkg" -o "./vendor/IFCPlugin.pkg"
 
 # Download Chromium GOST
 
@@ -41,6 +44,12 @@ tar -xvf ./vendor/chromium-gost.tar
 
 # open '~/Downloads/cprocsp.dmg'
 # open '~/Downloads/IFCPlugin.pkg'
+
+open ./vendor/uninstall_csp.app
+
+sudo installer -pkg "./vendor/$CSP_DMG" -target /
+sudo installer -pkg "./vendor/$CSP_PLUGIN" -target /
+sudo installer -pkg "./vendor/$IFC_PLUGIN" -target /
 
 ########
 ## @TODO This shit is not completed right here.
@@ -75,3 +84,7 @@ sudo /opt/cprocsp/sbin/cpconfig -ini '\cryptography\OID\1.2.643.7.1.1.1.2!3' -ad
 # sudo /opt/cprocsp/bin/certmgr -inst -store mroot -f ./ca-certs/AA524A7440E5365D6812016F74C54E516641A18D.cer
 
 # cat /etc/opt/cprocsp/config.ini | iconv -f windows-1251 -t utf-8
+
+/opt/cprocsp/bin/csptestf -absorb -certs
+/opt/cprocsp/bin/csptest -oid -general
+/opt/cprocsp/bin/csptest -card -enum -v -v
