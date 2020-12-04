@@ -9,6 +9,7 @@ cat /etc/opt/cprocsp/release
 # https://cryptopro.ru/system/files/private/csp/50/11944/ru.cryptopro.csp-5.0.11944.dmg
 
 CSP_DMG="ru.cryptopro.csp-5.0.11944.dmg"
+CSP_PLUGIN="cprocsp-pki-2.0.14071.pkg"
 
 # curl -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
 #   -sLo "/tmp/$CSP_DMG" \
@@ -18,6 +19,10 @@ CSP_DMG="ru.cryptopro.csp-5.0.11944.dmg"
 #   -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
 #   -XGET 'https://cryptopro.ru/products/cades/plugin/get_2_0' \
 #   -o '~/Downloads/cprocsp.dmg'
+
+# Download CADES Plugin
+
+curl -s "https://cryptopro.ru/products/cades/plugin/get_2_0" -o "./vendor/$CSP_PLUGIN"
 
 # Download IFC Plugin / gosuslugi.ru
 
